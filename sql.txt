@@ -1,0 +1,51 @@
+CREATE TABLE `tb_estate` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) DEFAULT NULL COMMENT '楼盘名称',
+  `province` varchar(10) DEFAULT NULL COMMENT '所在省',
+  `city` varchar(10) DEFAULT NULL COMMENT '所在市',
+  `area` varchar(10) DEFAULT NULL COMMENT '所在区',
+  `address` varchar(100) DEFAULT NULL COMMENT '具体地址',
+  `year` varchar(10) DEFAULT NULL COMMENT '建筑年代',
+  `type` varchar(10) DEFAULT NULL COMMENT '建筑类型',
+  `property_cost` varchar(10) DEFAULT NULL COMMENT '物业费',
+  `property_company` varchar(20) DEFAULT NULL COMMENT '物业公司',
+  `developers` varchar(20) DEFAULT NULL COMMENT '开发商',
+  `created` datetime DEFAULT NULL COMMENT '创建时间',
+  `updated` datetime DEFAULT NULL COMMENT '更新时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1006 DEFAULT CHARSET=utf8 COMMENT='楼盘表';
+
+-- 初始数据
+INSERT INTO `tb_estate` (`id`, `name`, `province`, `city`, `area`, `address`, `year`, `type`, `property_cost`, `property_company`, `developers`, `created`, `updated`) VALUES ('1001', '中远两湾城', '上海市', '上海市', '普陀区', '远景路97弄', '2001', '塔楼板楼', '1.5', '上海中远物业管理发展有限公司', '上海万业企业股份有限公司', '2018-11-06 230020', '2018-11-06 230023');
+INSERT INTO `tb_estate` (`id`, `name`, `province`, `city`, `area`, `address`, `year`, `type`, `property_cost`, `property_company`, `developers`, `created`, `updated`) VALUES ('1002', '上海康城', '上海市', '上海市', '闵行区', '莘松路958弄', '2001', '塔楼板楼', '1.5', '盛孚物业', '闵行房地产', '2018-11-06 230230', '2018-11-27 230233');
+INSERT INTO `tb_estate` (`id`, `name`, `province`, `city`, `area`, `address`, `year`, `type`, `property_cost`, `property_company`, `developers`, `created`, `updated`) VALUES ('1003', '保利西子湾', '上海市', '上海市', '松江区', '广富林路1188弄', '2008', '塔楼板楼', '1.75', '上海保利物业管理', '上海城乾房地产开发有限公司', '2018-11-06 230422', '2018-11-06 230425');
+INSERT INTO `tb_estate` (`id`, `name`, `province`, `city`, `area`, `address`, `year`, `type`, `property_cost`, `property_company`, `developers`, `created`, `updated`) VALUES ('1004', '万科城市花园', '上海市', '上海市', '松江区', '广富林路1188弄', '2002', '塔楼板楼', '1.5', '上海保利物业管理', '上海城乾房地产开发有限公司', '2018-11-13 164340', '2018-11-13 164342');
+INSERT INTO `tb_estate` (`id`, `name`, `province`, `city`, `area`, `address`, `year`, `type`, `property_cost`, `property_company`, `developers`, `created`, `updated`) VALUES ('1005', '上海阳城', '上海市', '上海市', '闵行区', '罗锦路888弄', '2002', '塔楼板楼', '1.5', '上海莲阳物业管理有限公司', '上海莲城房地产开发有限公司', '2018-11-06 232352', '2018-11-06 232355');
+
+CREATE TABLE `tb_house_resources` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(100) DEFAULT NULL COMMENT '房源标题',
+  `estate_id` bigint(20) DEFAULT NULL COMMENT '楼盘id',
+  `building_num` varchar(5) DEFAULT NULL COMMENT '楼号（栋）',
+  `building_unit` varchar(5) DEFAULT NULL COMMENT '单元号',
+  `building_floor_num` varchar(5) DEFAULT NULL COMMENT '门牌号',
+  `rent` int(10) DEFAULT NULL COMMENT '租金',
+  `rent_method` tinyint(1) DEFAULT NULL COMMENT '租赁方式，1-整租，2-合租',
+  `payment_method` tinyint(1) DEFAULT NULL COMMENT '支付方式，1-付一押一，2-付三押一，3-付六押一，4-年付押一，5-其它',
+  `house_type` varchar(255) DEFAULT NULL COMMENT '户型，如：2室1厅1卫',
+  `covered_area` varchar(10) DEFAULT NULL COMMENT '建筑面积',
+  `use_area` varchar(10) DEFAULT NULL COMMENT '使用面积',
+  `floor` varchar(10) DEFAULT NULL COMMENT '楼层，如：826',
+  `orientation` varchar(2) DEFAULT NULL COMMENT '朝向：东、南、西、北',
+  `decoration` tinyint(1) DEFAULT NULL COMMENT '装修，1-精装，2-简装，3-毛坯',
+  `facilities` varchar(50) DEFAULT NULL COMMENT '配套设施， 如：1,2,3',
+  `pic` varchar(200) DEFAULT NULL COMMENT '图片，最多5张',
+  `house_desc` varchar(200) DEFAULT NULL COMMENT '描述',
+  `contact` varchar(10) DEFAULT NULL COMMENT '联系人',
+  `mobile` varchar(11) DEFAULT NULL COMMENT '手机号',
+  `time` tinyint(1) DEFAULT NULL COMMENT '看房时间，1-上午，2-中午，3-下午，4-晚上，5-全天',
+  `property_cost` varchar(10) DEFAULT NULL COMMENT '物业费',
+  `created` datetime DEFAULT NULL,
+  `updated` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT='房源表';
